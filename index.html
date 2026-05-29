@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Akinsipe Jephthah, Email Strategist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0d0d0d;
+      --white: #f9f7f4;
+      --cream: #f2ede6;
+      --accent: #c8964a;
+      --mid: #6b6660;
+      --border: #e0d9d0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 6vw;
+      background: rgba(249,247,244,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 10rem 6vw 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55vw;
+      height: 55vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f0e6d3 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.4s;
+    }
+
+    
+
+
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .hero-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 6px var(--cream), 0 0 0 8px var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: var(--mid);
+      max-width: 520px;
+      margin-bottom: 3rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.6s;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.8s;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--black);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--black);
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--border);
+      transition: border-color 0.25s, color 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--black);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 7rem 6vw;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-intro {
+      color: var(--mid);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin-bottom: 4rem;
+    }
+    /* ABOUT */
+    #about {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--mid);
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .stat-box {
+      border-top: 2px solid var(--accent);
+      padding-top: 1.2rem;
+    }
+
+    .stat-number {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--mid);
+      letter-spacing: 0.05em;
+    }
+
+    /* SEQUENCES GRID */
+    .sequences-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .sequence-card {
+      background: var(--white);
+      padding: 2.4rem 2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sequence-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 3px;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .sequence-card:hover { background: #faf8f5; }
+    .sequence-card:hover::after { width: 100%; }
+
+    .card-number {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-title {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--border);
+      color: var(--mid);
+    }
+
+    .card-link {
+      display: block;
+      margin-top: 1.4rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .card-link:hover { color: var(--accent); }
+
+    /* PROCESS */
+    #process { background: var(--black); color: var(--white); }
+    #process h2 { color: var(--white); }
+    #process .section-intro { color: #999; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .step {
+      border-top: 1px solid #333;
+      padding-top: 1.6rem;
+    }
+
+    .step-num {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .step-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: var(--white);
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    #contact {
+      text-align: center;
+      padding: 8rem 6vw;
+    }
+
+    #contact h2 {
+      max-width: 600px;
+      margin: 0 auto 1.2rem;
+    }
+
+    #contact .section-intro {
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .contact-email {
+      display: inline-block;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-style: italic;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 0.2rem;
+      margin-bottom: 3rem;
+      transition: opacity 0.2s;
+    }
+
+    .contact-email:hover { opacity: 0.7; }
+
+    /* FOOTER */
+    footer {
+      background: var(--cream);
+      padding: 2rem 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+
+    footer a { color: var(--mid); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .nav-links { display: none; }
+      .hero-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#"></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#casestudies">Case Studies</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="hero-content">
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="data:image/jpeg;base64,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" alt="Akinsipe Jephthah" />
+      </div>
+      <p class="hero-label" style="font-weight:700; font-size:0.85rem; letter-spacing:0.2em;">Email Marketing Strategist</p>
+      <h1>Akinsipe Jephthah.</h1>
+      <p class="hero-tagline">Strategic email sequences for brands ready to grow.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-secondary">Work With Me</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-text reveal">
+      <p class="section-label">About</p>
+      <h2>Words that work.<br/>Sequences that sell.</h2>
+      <p>I'm an email marketer with 3 years of experience, specializing in building full-funnel email sequences from the first hello to the final win-back. Every word is intentional and each of my emails has a role.</p>
+      <p>I don't just write emails. I craft strategic touchpoints that guide subscribers through a journey, building trust, creating desire, and driving action at every stage.</p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-box">
+        <div class="stat-number">9</div>
+        <div class="stat-label">Sequence Types Mastered</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Revenue Potential Unlocked</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Strategy-First Approach</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" style="padding-bottom: 2rem;">
+    <p class="section-label reveal">Portfolio</p>
+    <h2 class="reveal">The Sequences</h2>
+    <p class="section-intro reveal">Nine sequence types. Each built to do one thing: move your subscriber closer to yes.</p>
+  </section>
+
+  <!-- NICHE NOTE -->
+  <section style="padding: 2rem 6vw; background: var(--cream);">
+    <p class="section-label reveal">A Quick Note on the Sequences</p>
+    <p class="section-intro reveal" style="max-width: 720px; margin-bottom: 1.2rem;">Every sequence in this portfolio was written for the weight loss niche. This is intentional, as it gives you a clear, consistent example of what my writing looks like in action.</p>
+    <p class="section-intro reveal" style="max-width: 720px; margin-bottom: 1.2rem;">But this is not all I do. I write for any niche.</p>
+    <p class="section-intro reveal" style="max-width: 720px; margin-bottom: 0;">What you see here is a demonstration of structure, strategy, and persuasion, all of which I adapt to fit your brand, your audience, and your specific email goals.</p>
+  </section>
+
+  <div class="sequences-grid">
+
+    <div class="sequence-card reveal">
+      <div class="card-number">01</div>
+      <div class="card-title">Welcome Sequence</div>
+      <div class="card-desc">First impressions are everything. This sequence sets the tone, builds trust, and converts new subscribers into believers from day one.</div>
+      <span class="card-tag">Onboarding</span>
+      <a class="card-link" href="https://docs.google.com/document/d/166HL5bnHZtm-5ySI_NHg_V7yzxLlOFN-dejmbJB2J2o/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+    <div class="sequence-card reveal">
+      <div class="card-number">02</div>
+      <div class="card-title">Launch Sequence</div>
+      <div class="card-desc">Build anticipation, create urgency, and drive sales during your product or offer launch window with a sequence engineered to convert.</div>
+      <span class="card-tag">Sales</span>
+      <a class="card-link" href="https://docs.google.com/document/d/1MAoQ2_eqPI-0GkIkRAfqGV5oAE-ZsZCgH6JAmQtKUZY/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+    <div class="sequence-card reveal">
+      <div class="card-number">03</div>
+      <div class="card-title">Upsell Sequence</div>
+      <div class="card-desc">Your customer just said yes. Now take them further. This sequence presents the next logical offer at exactly the right moment.</div>
+      <span class="card-tag">Revenue</span>
+      <a class="card-link" href="https://docs.google.com/document/d/1LvMTdbGHnHMH-vg_6708rDP2PopffnBu7HMjoQrn21k/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+    <div class="sequence-card reveal">
+      <div class="card-number">04</div>
+      <div class="card-title">Downsell Sequence</div>
+      <div class="card-desc">Not every "no" is final. This sequence recaptures hesitant buyers with a strategic alternative that keeps them in your ecosystem.</div>
+      <span class="card-tag">Recovery</span>
+      <a class="card-link" href="https://docs.google.com/document/d/1LyV78FBUNx8E0ytLpzv195BBvC2Bw98Ozkt_Zx-q2fw/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+    <div class="sequence-card reveal">
+      <div class="card-number">05</div>
+      <div class="card-title">Webinar Sequence</div>
+      <div class="card-desc">From registration to post-webinar close, a sequence that fills seats, drives attendance, and maximizes conversions after the event.</div>
+      <span class="card-tag">Events</span>
+      <a class="card-link" href="https://docs.google.com/document/d/1NJswg51UNitVTOdKWAZI7M2SdvuO95HKESzy6bDForA/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+    <div class="sequence-card reveal">
+      <div class="card-number">06</div>
+      <div class="card-title">Abandoned Cart Sequence</div>
+      <div class="card-desc">They were close. This sequence brings them back to finish what they started, without being pushy, without leaving money on the table.</div>
+      <span class="card-tag">Retention</span>
+      <a class="card-link" href="https://docs.google.com/document/d/1KVbRrMCYM8WoJ4Jc98kEn2toMAX3UbYZBkTxMrTfWsc/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+    <div class="sequence-card reveal">
+      <div class="card-number">07</div>
+      <div class="card-title">Re-engagement Sequence</div>
+      <div class="card-desc">Cold subscribers cost you money. This sequence wakes them up, reminds them why they joined, and cleanly removes those who won't come back.</div>
+      <span class="card-tag">List Health</span>
+      <a class="card-link" href="https://docs.google.com/document/d/1KyATMpscJU33JIlCXTYq5EbH3GS6QEl_3azt3WWfdXo/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+    <div class="sequence-card reveal">
+      <div class="card-number">08</div>
+      <div class="card-title">Nurture Sequence</div>
+      <div class="card-desc">Not everyone is ready to buy today. This sequence builds the relationship over time, so when they're ready, you're already the obvious choice.</div>
+      <span class="card-tag">Long-term</span>
+      <a class="card-link" href="https://docs.google.com/document/d/1JxDgxOZOLUVI5o2wGRuCZjT59v0kuLSA6s1gs3ZJeR0/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+    <div class="sequence-card reveal">
+      <div class="card-number">09</div>
+      <div class="card-title">Onboarding Sequence</div>
+      <div class="card-desc">Turn new customers into loyal ones. This sequence guides them through your product or service so they get results fast and stick around longer.</div>
+      <span class="card-tag">Retention</span>
+      <a class="card-link" href="https://docs.google.com/document/d/1L0VAK-iJGFPBedN1vbXgt0755EfHilBbpIMmxA7PltQ/edit?usp=drivesdk" target="_blank">View Sequence →</a>
+    </div>
+
+  </div>
+
+
+  <!-- CASE STUDIES -->
+  <section id="casestudies" style="background: var(--cream);">
+    <p class="section-label reveal">Case Studies</p>
+    <h2 class="reveal">Real Work. Real Results.</h2>
+    <p class="section-intro reveal">These are not hypothetical examples. Every case study here reflects actual work done for a real client, with real outcomes.</p>
+
+    <div style="background: var(--white); border: 1.5px solid var(--border); padding: 2.4rem 2rem; max-width: 780px;">
+
+      <p class="section-label reveal">Case Study 01</p>
+      <h3 class="reveal" style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 1.2rem; line-height: 1.3;">From a Silent List to an Engaged Audience</h3>
+
+      <p style="font-size: 0.8rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.6rem;"><strong>Client:</strong> Mrs. Bibi George &nbsp;|&nbsp; <strong>Niche:</strong> Communication (Public Speaking & Diction)</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Problem</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">Mrs. Bibi had an email list on Mailchimp — but it had been silent for a long time. No consistent emails were going out, no relationship was being built, and her subscribers had essentially gone cold. The list existed, but it was not working for her.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Solution</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">I came in with a clear plan. First, I crafted a re-engagement sequence designed to wake up her cold Mailchimp subscribers and move the active ones over to her new ESP, Systeme.io. A few of them made the move. I also wrote a message she could send to her past buyers, inviting them to join her new list on Systeme.io.</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">From there, I built a welcome sequence to re-introduce her to those who already knew her, and to properly introduce her to those who were just discovering her for the first time.</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">Finally, we established a consistent sending rhythm — one intentional email every Friday — so her list could start to know, like, and trust her.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Process</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">I began with the re-engagement and migration strategy to salvage and transfer her existing audience. Once the new list was set up on Systeme.io, I wrote the welcome sequence to set the right tone from day one.</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">From there, I took over her weekly emails, crafting one email every Friday, each one designed to engage, educate, and deepen the relationship between Mrs. Bibi and her audience. Emails go out every Friday as a consistent weekly touchpoint. There were occasions where unforeseen circumstances meant an email went out on a different day, but consistency was always the priority and any deviation from the Friday schedule was the exception, not the rule.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Results</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">Since we started working together, Mrs. Bibi's email list has maintained an average open rate of 25.5%, with a 0.0% spam rate — meaning her emails are landing in inboxes and her subscribers are actually reading them. She has also been receiving direct replies from her audience, a strong signal that the emails are resonating on a personal level.</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">No offer has been launched to the list yet. What you see here is purely relationship building — and the numbers already reflect an engaged, responsive audience ready for when we do.</p>
+
+      <a href="https://docs.google.com/document/d/1NLonRM2D-SnUHA97rCVpVTeilkLKyJIsogQEyjAOrXU/edit?usp=drivesdk" target="_blank" class="btn-primary reveal" style="display: inline-block; text-decoration: none;">See the Work Behind This Case Study →</a>
+
+    </div>
+
+      <div style="background: var(--white); border: 1.5px solid var(--border); padding: 2.4rem 2rem; max-width: 780px; margin-top: 2.4rem;">
+
+      <p class="section-label reveal">Case Study 02</p>
+      <h3 class="reveal" style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 1.2rem; line-height: 1.3;">How an Abandoned Cart Sequence Recovered Over &#8358;400,000 in Sales</h3>
+
+      <p style="font-size: 0.8rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.6rem;"><strong>Client:</strong> Oleander Yuba &nbsp;|&nbsp; <strong>Niche:</strong> Communication (Public Speaking & Diction) &nbsp;|&nbsp; <strong>Service:</strong> Abandoned Cart Sequence</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Problem</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">Mrs. Oleander was running paid ads to sell her low ticket offer, TPS (The Polished Speaker), priced at &#8358;9,999. The ads were bringing in traffic and people were showing interest, but a number of potential buyers were dropping off at checkout without completing their payment. That money was sitting on the table, unclaimed.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Solution</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">I came in and crafted a 3-part abandoned cart email sequence specifically designed to bring those potential buyers back. Each email addressed a different stage of hesitation, acknowledging their concerns, removing barriers to payment, and creating urgency to complete their purchase.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Process</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">I studied the offer, understood the audience, and wrote a sequence that spoke directly to the hesitation of someone who had shown interest but not yet committed. Each email in the sequence was intentional, moving the reader closer to a decision without being pushy or desperate.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Results</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">The abandoned cart sequence performed exceptionally well, achieving a conversion rate of over 10% and recovering over &#8358;400,000 in sales that would have otherwise been lost.</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">Please note that the dashboard data capturing these results is no longer available, as this campaign was run some time ago. However, the results were tracked and recorded during the campaign period.</p>
+
+      <a href="https://docs.google.com/document/d/1NoFAztLil4rY3Ya-HjgUBzlCFaPwko4AhBTXVUGJing/edit?usp=drivesdk" target="_blank" class="btn-primary reveal" style="display: inline-block; text-decoration: none;">See the Work Behind This Case Study →</a>
+
+    </div>
+
+      <div style="background: var(--white); border: 1.5px solid var(--border); padding: 2.4rem 2rem; max-width: 780px; margin-top: 2.4rem;">
+
+      <p class="section-label reveal">Case Study 03</p>
+      <h3 class="reveal" style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 1.2rem; line-height: 1.3;">How a Strategic Email Campaign Generated &#8358;400,000 in High Ticket Sales in 30 Days</h3>
+
+      <p style="font-size: 0.8rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.6rem;"><strong>Client:</strong> Oleander Yuba &nbsp;|&nbsp; <strong>Niche:</strong> Communication (Public Speaking & Diction) &nbsp;|&nbsp; <strong>Service:</strong> High Ticket Email Campaign &nbsp;|&nbsp; <strong>Product:</strong> Journey to Eloquence (JTE) — &#8358;200,000</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Problem</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">Mrs. Oleander had a high ticket program, Journey to Eloquence, sitting in her offer suite with an existing email list that had not been strategically pitched to it. The challenge with high ticket offers is that they require a different approach entirely. You cannot simply send a sales email and expect results. The audience needed to be qualified, nurtured, and guided through a deliberate process before being presented with the offer.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Solution</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">I designed and executed a multi-step email campaign that went beyond a simple promotion. The strategy was built around qualification, ensuring that only the right people were being moved towards the offer, while others were redirected to more suitable products.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Process</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">Promotional emails were sent to the list, designed to pique interest and drive clicks. Once a subscriber clicked, they were taken to a page with a series of qualifying questions. Based on their responses, two things could happen:</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">Those who qualified were offered the opportunity to book a call directly with Mrs. Oleander, who would then close them on Journey to Eloquence.</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">Those who did not qualify automatically received a follow-up email redirecting them to other products in her offer suite, ensuring no lead was wasted. This was a full system, not just emails, but a strategic pipeline built to filter, qualify, and convert at the right level for each subscriber.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Results</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">Within 30 days, the campaign generated 2 sales of Journey to Eloquence, bringing in &#8358;400,000 in high ticket revenue. It is worth noting that the campaign was not run consistently over an extended period. Given the strategy in place, a longer and more consistent execution would have produced significantly higher results.</p>
+
+      <a href="https://docs.google.com/document/d/1NrPcom4kHC2u143WTRGUyBq-8u9AuiGHn51zIU0VLMI/edit?usp=drivesdk" target="_blank" class="btn-primary reveal" style="display: inline-block; text-decoration: none;">See the Work Behind This Case Study →</a>
+
+    </div>
+
+      <div style="background: var(--white); border: 1.5px solid var(--border); padding: 2.4rem 2rem; max-width: 780px; margin-top: 2.4rem;">
+
+      <p class="section-label reveal">Case Study 04</p>
+      <h3 class="reveal" style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 1.2rem; line-height: 1.3;">Consistent Nurturing That Keeps an Audience Engaged Week After Week</h3>
+
+      <p style="font-size: 0.8rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.6rem;"><strong>Client:</strong> Oleander Yuba &nbsp;|&nbsp; <strong>Niche:</strong> Communication (Public Speaking & Diction) &nbsp;|&nbsp; <strong>Service:</strong> Weekly Nurturing Emails &nbsp;|&nbsp; <strong>Duration:</strong> May 2025 till date</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Problem</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">Having an email list is one thing. Keeping that list warm, engaged, and looking forward to your emails every week is another. For Mrs. Oleander, the goal was not just to send emails, but to build a consistent presence in her subscribers' inboxes that educated, added value, and deepened the relationship between her and her audience week after week.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Solution</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">I took over the writing of Mrs. Oleander's weekly nurturing emails, crafting one intentional email every Thursday. Each email was written to educate her subscribers on communication, public speaking, and diction, positioning her as a trusted authority in her niche while keeping her audience consistently engaged.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Process</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">Every Thursday, a nurturing email goes out to Mrs. Oleander's list. Each email is built around a single idea, concept, or insight relevant to her audience, written in a way that is clear, engaging, and easy to apply. In situations where unforeseen circumstances made it impossible to send on a Thursday, the email was sent on the nearest available day. Consistency was always the priority.</p>
+
+      <p style="font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">The Results</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.8rem;">Below are the open rates for three of the nurturing emails written for this campaign:</p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.4rem;">&#8226; &nbsp;<strong>Email 1</strong> — "Intelligence Doesn't Make You Sound Confident" — <strong style="color: var(--accent);">35.79% open rate</strong></p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.4rem;">&#8226; &nbsp;<strong>Email 2</strong> — "Before You Speak, Take Note Of These..." — <strong style="color: var(--accent);">29.86% open rate</strong></p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.6rem;">&#8226; &nbsp;<strong>Email 3</strong> — "The Vocabulary Habit That Changes How People Perceive You" — <strong style="color: var(--accent);">29.69% open rate</strong></p>
+      <p class="reveal" style="color: var(--mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">These numbers are consistently above the industry average open rate of 20 to 25%, reflecting an audience that genuinely looks forward to receiving these emails every week.</p>
+
+      <a href="https://docs.google.com/document/d/1ODfwMyx8900C_KbdfJS9sBPU6SzZtYf2219sRyjvPLc/edit?usp=drivesdk" target="_blank" class="btn-primary reveal" style="display: inline-block; text-decoration: none;">See the Work Behind This Case Study →</a>
+
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <p class="section-label reveal">How I Work</p>
+    <h2 class="reveal">Strategy before a single word is written.</h2>
+    <p class="section-intro reveal">Here's my process.</p>
+    <div class="process-steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Research & Discovery</div>
+        <div class="step-desc">I study your audience, offer, competitors, and voice before touching the keyboard.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Sequence Mapping</div>
+        <div class="step-desc">Every email gets a role. I map the journey before writing a single subject line.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Copywriting</div>
+        <div class="step-desc">Strategic, persuasive emails written to match your brand voice and convert.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Review & Refine</div>
+        <div class="step-desc">Feedback rounds until every email is tight, purposeful, and ready to send.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESP SECTION -->
+  <section id="esp" style="background: var(--cream);">
+    <p class="section-label reveal">Tools & Platforms</p>
+    <h2 class="reveal">Email Service Providers</h2>
+    <p class="section-intro reveal" style="max-width: 720px;">I have experience with Mailchimp, Fluent CRM, and Systeme.io, and I'm fully capable of adapting to any other email service provider your business already uses or decides to use.</p>
+    </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label reveal">Let's Work Together</p>
+    <h2 class="reveal">Ready for email sequences<br/>that actually convert?</h2>
+    <p class="section-intro reveal">Whether you need a full funnel built or a single sequence sharpened, let's talk.</p>
+    <p class="reveal" style="color: var(--mid); font-size: 0.95rem; margin-bottom: 0.5rem;">You can reach out to me via email through:</p>
+    <a class="contact-email reveal" href="mailto:akinsipejephthah88@gmail.com">akinsipejephthah88@gmail.com</a>
+    <p class="reveal" style="color: var(--mid); font-size: 1rem; margin: 1.2rem 0; font-weight: 500;">OR</p>
+    <a href="https://wa.me/2348112341146" target="_blank" class="btn-primary reveal" style="display: inline-block; text-decoration: none; background: var(--accent); border-color: var(--accent); margin-bottom: 2.5rem;">Via WhatsApp</a>
+    <p class="reveal" style="color: var(--mid); font-size: 0.95rem; margin-bottom: 1rem;">You can also check my social media platforms:</p>
+    <div class="reveal" style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: nowrap;">
+      <a href="https://x.com/je_ph_th_ah?s=21" target="_blank" style="display: inline-block; background: var(--black); color: var(--white); padding: 0.6rem 1.2rem; font-size: 0.78rem; font-family: DM Sans, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--black);">Twitter</a>
+      <a href="https://www.facebook.com/share/1ESMKNaAWu/?mibextid=wwXIfr" target="_blank" style="display: inline-block; background: var(--black); color: var(--white); padding: 0.6rem 1.2rem; font-size: 0.78rem; font-family: DM Sans, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--black);">Facebook</a>
+      <a href="https://www.instagram.com/meet_jephthah" target="_blank" style="display: inline-block; background: var(--black); color: var(--white); padding: 0.6rem 1.2rem; font-size: 0.78rem; font-family: DM Sans, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--black);">Instagram</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Akinsipe Jephthah. All rights reserved.</span>
+
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
